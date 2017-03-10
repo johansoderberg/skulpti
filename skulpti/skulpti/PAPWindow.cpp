@@ -55,9 +55,11 @@ void PAPWindow::start() {
 		printf("Something went wrong!\n");
 		exit(-1);
 	}
-	cout << "Vendor:   " << glGetString(GL_VENDOR) << endl;
-	cout << "Renderer: " << glGetString(GL_RENDERER) << endl;
-	cout << "Version:  " << glGetString(GL_VERSION) << endl;
+
+	cout << "OpenGL Driver\n";
+	cout << "  Vendor:   " << glGetString(GL_VENDOR) << endl;
+	cout << "  Renderer: " << glGetString(GL_RENDERER) << endl;
+	cout << "  Version:  " << glGetString(GL_VERSION) << endl;
 
 	// generate VAO (vertex array object).
 	GLuint VertexArrayID;
