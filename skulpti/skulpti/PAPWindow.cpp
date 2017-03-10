@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "PAPWindow.h"
+#include "SkulptiScene.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ void render(GLFWwindow *window) {
 }
 
 void PAPWindow::start() {
+
 	cout << "initialising GLFW: ";
 	if (!glfwInit())
 	{
@@ -33,11 +35,31 @@ void PAPWindow::start() {
 	cout << glfwGetVersionString() << endl;
 	glfwSetErrorCallback(error_callback);
 
-	GLFWwindow* window = glfwCreateWindow(1600, 800, _title.c_str(), NULL, NULL);
-	glfwMakeContextCurrent(window);
+	// Select OpenGL version
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+	GLFWwindow* window = glfwCreateWindow(1600, 800, _title.c_str(), NULL, NULL);
+	if (window == NULL) {
+		return;
+	}
+
+	glfwMakeContextCurrent(window);
 	glfwSetWindowSizeCallback(window, window_size_callback);
 	glfwSetKeyCallback(window, key_callback);
+
+	// Load extentions and function pointers.
+	if (!gladLoadGL()) {
+		printf("Something went wrong!\n");
+		exit(-1);
+	}
+	cout << "Vendor:   " << glGetString(GL_VENDOR) << endl;
+	cout << "Renderer: " << glGetString(GL_RENDERER) << endl;
+	cout << "Version:  " << glGetString(GL_VERSION) << endl;
+
+	_currentScene = new SkulptiScene(this);
 
 	// Start window handling
 	while ((!glfwWindowShouldClose(window)) && (!doTerminate))
@@ -67,7 +89,7 @@ PAPWindow::PAPWindow(string Title)
 
 PAPWindow::~PAPWindow()
 {
-	cout << "The window is destroying.\n";
+
 }
 
 void PAPWindow::key_press(GLFWwindow* window, int key, int scancode, int action, int mods) {
@@ -108,5 +130,7 @@ void PAPWindow::render(GLFWwindow* window) {
 		cout << "Warning: Current Scene is NULL (render).\n";
 		return;
 	}
+	glClear(GL_COLOR_BUFFER_BIT);
 	_currentScene->render(window);
 }
+

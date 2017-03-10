@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <string>
 #include "PAPScene.h"
@@ -19,6 +20,7 @@ public:
 	void size_callback(GLFWwindow* window, int width, int height);
 	void render(GLFWwindow* window);
 	void terminate();
+	
 private:
 	int esc_pressed_counter;
 	bool doTerminate;

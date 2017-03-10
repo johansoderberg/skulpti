@@ -33,10 +33,10 @@
     <ClInclude Include="PAPScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SkultpiScene.h">
+    <ClInclude Include="SkulptiScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PAPDrawArea.h">
+    <ClInclude Include="..\..\glad\include\glad\glad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,10 +53,10 @@
     <ClCompile Include="PAPScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SkultpiScene.cpp">
+    <ClCompile Include="SkulptiScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PAPDrawArea.cpp">
+    <ClCompile Include="glad.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
