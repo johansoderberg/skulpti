@@ -2,6 +2,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm.hpp>
 #include <string>
 #include "PAPScene.h"
 
@@ -26,6 +27,5 @@ private:
 	bool doTerminate;
 	PAPScene* _currentScene;
 	string _title;
-
 };
 

@@ -59,9 +59,15 @@ void PAPWindow::start() {
 	cout << "Renderer: " << glGetString(GL_RENDERER) << endl;
 	cout << "Version:  " << glGetString(GL_VERSION) << endl;
 
+	// generate VAO (vertex array object).
+	GLuint VertexArrayID;
+	glGenVertexArrays(1, &VertexArrayID);
+	glBindVertexArray(VertexArrayID);
+
 	_currentScene = new SkulptiScene(this);
 
 	// Start window handling
+	cout << "Starting event loop.\n\n";
 	while ((!glfwWindowShouldClose(window)) && (!doTerminate))
 	{
 		render(window);
@@ -69,6 +75,7 @@ void PAPWindow::start() {
 		glfwPollEvents();
 	}
 	// Stop window handling.
+	cout << "Event loop stopped.\n";
 
 	// Clean up
 	glfwDestroyWindow(window);

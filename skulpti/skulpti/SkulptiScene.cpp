@@ -1,17 +1,9 @@
 #include "stdafx.h"
 #include "SkulptiScene.h"
-#include "GLFW\glfw3.h"
 
 
 SkulptiScene::SkulptiScene(PAPWindow* window) : PAPScene(window)
 {
-
-	GLuint VertexArrayID;
-	
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-
-
 	// Generate 1 buffer, put the resulting identifier in vertexbuffer
 	glGenBuffers(1, &vertexbuffer);
 	// The following commands will talk about our 'vertexbuffer' buffer
