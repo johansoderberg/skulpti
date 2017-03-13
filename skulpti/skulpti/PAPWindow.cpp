@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <iostream>
 #include "PAPWindow.h"
 #include "SkulptiScene.h"
@@ -7,15 +7,15 @@ using namespace std;
 
 PAPWindow* win = NULL;
 
-void error_callback(int error, const char* description){
-		cout << "error_callback: " << description << endl;
+void error_callback(int error, const char* description) {
+	cout << "error_callback: " << description << endl;
 }
 
-void window_size_callback(GLFWwindow* window, int width, int height){
+void window_size_callback(GLFWwindow* window, int width, int height) {
 	win->size_callback(window, width, height);
 }
 
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods){
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	win->key_press(window, key, scancode, action, mods);
 }
 
@@ -25,14 +25,14 @@ void render(GLFWwindow *window) {
 
 void PAPWindow::start() {
 
-	cout << "initialising GLFW: ";
+	cout << u8"Initialising GLFW: ";
 	if (!glfwInit())
 	{
-		cout << "Failed to initialise GLFW. (Exiting) \n";
+		cout << u8"Failed to initialise GLFW. (Exiting)\n";
 		throw 8;
 	}
 
-	cout << glfwGetVersionString() << endl;
+	wcout << glfwGetVersionString() << endl;
 	glfwSetErrorCallback(error_callback);
 
 	// Select OpenGL version
@@ -52,14 +52,14 @@ void PAPWindow::start() {
 
 	// Load extentions and function pointers.
 	if (!gladLoadGL()) {
-		printf("Something went wrong!\n");
+		cout << u8"Something went wrong!\n";
 		exit(-1);
 	}
 
-	cout << "OpenGL Driver\n";
-	cout << "  Vendor:   " << glGetString(GL_VENDOR) << endl;
-	cout << "  Renderer: " << glGetString(GL_RENDERER) << endl;
-	cout << "  Version:  " << glGetString(GL_VERSION) << endl;
+	cout << u8"OpenGL Driver\n";
+	cout << u8"  Vendor:   " << glGetString(GL_VENDOR) << endl;
+	cout << u8"  Renderer: " << glGetString(GL_RENDERER) << endl;
+	cout << u8"  Version:  " << glGetString(GL_VERSION) << endl;
 
 	// generate VAO (vertex array object).
 	GLuint VertexArrayID;
@@ -69,7 +69,7 @@ void PAPWindow::start() {
 	_currentScene = new SkulptiScene(this);
 
 	// Start window handling
-	cout << "Starting event loop.\n\n";
+	cout << u8"Starting event loop.\n\n";
 	while ((!glfwWindowShouldClose(window)) && (!doTerminate))
 	{
 		render(window);
@@ -77,7 +77,7 @@ void PAPWindow::start() {
 		glfwPollEvents();
 	}
 	// Stop window handling.
-	cout << "Event loop stopped.\n";
+	cout << u8"Event loop stopped.\n";
 
 	// Clean up
 	glfwDestroyWindow(window);
@@ -106,7 +106,7 @@ void PAPWindow::key_press(GLFWwindow* window, int key, int scancode, int action,
 		if ((action == GLFW_PRESS)) {
 			esc_pressed_counter++;
 		}
-		
+
 		if (esc_pressed_counter >= 3) {
 			terminate();
 		}
@@ -115,16 +115,16 @@ void PAPWindow::key_press(GLFWwindow* window, int key, int scancode, int action,
 		esc_pressed_counter = 0;
 
 	if (_currentScene == NULL) {
-		cout << "Warning: Current Scene is NULL (key_press).\n";
+		cout << u8"Warning: Current Scene is NULL (key_press).\n";
 		return;
 	}
 	_currentScene->key_press(window, key, scancode, action, mods);
 }
 
 void PAPWindow::size_callback(GLFWwindow* window, int width, int height) {
-	
-	if(_currentScene == NULL) {
-		cout << "Warning: Current Scene is NULL (size_callback).\n";
+
+	if (_currentScene == NULL) {
+		cout << u8"Warning: Current Scene is NULL (size_callback).\n";
 		return;
 	}
 	_currentScene->size_callback(window, width, height);
@@ -135,8 +135,8 @@ void PAPWindow::terminate() {
 }
 
 void PAPWindow::render(GLFWwindow* window) {
-	if(_currentScene == NULL) {
-		cout << "Warning: Current Scene is NULL (render).\n";
+	if (_currentScene == NULL) {
+		cout << u8"Warning: Current Scene is NULL (render).\n";
 		return;
 	}
 	glClear(GL_COLOR_BUFFER_BIT);

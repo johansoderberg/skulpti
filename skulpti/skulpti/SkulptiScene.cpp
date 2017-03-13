@@ -1,26 +1,30 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "SkulptiScene.h"
 
 
 SkulptiScene::SkulptiScene(PAPWindow* window) : PAPScene(window)
 {
+	program = new PAPShaderProgram(string("C:\\Users\\JohanSöderberg\\OneDrive - One Agency AB\\Code\\skulpti\\skulpti\\Shaders\\Vertex1.txt"),
+		"C:\\Users\\JohanSöderberg\\OneDrive - One Agency AB\\Code\\skulpti\\skulpti\\Shaders\\Fragment1.txt");
 	// Generate 1 buffer, put the resulting identifier in vertexbuffer
 	glGenBuffers(1, &vertexbuffer);
 	// The following commands will talk about our 'vertexbuffer' buffer
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	// Give our vertices to OpenGL.
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+
 }
 
 
 SkulptiScene::~SkulptiScene()
 {
-
+	delete program;
 }
 
 void SkulptiScene::render(GLFWwindow* window) {
 
-	// 1rst attribute buffer : vertices
+	glUseProgram(program->getProgramID());
+	// 1st attribute buffer : vertices
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glVertexAttribPointer(

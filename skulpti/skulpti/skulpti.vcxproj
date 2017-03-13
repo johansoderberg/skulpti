@@ -151,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\glad\include\glad\glad.h" />
     <ClInclude Include="PAPScene.h" />
+    <ClInclude Include="PAPShaderProgram.h" />
     <ClInclude Include="PAPWindow.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SkulptiScene.h" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="glad.cpp" />
     <ClCompile Include="PAPScene.cpp" />
+    <ClCompile Include="PAPShaderProgram.cpp" />
     <ClCompile Include="PAPWindow.cpp" />
     <ClCompile Include="skulpti.cpp" />
     <ClCompile Include="SkulptiScene.cpp" />

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "PAPScene.h"
 
 class SkulptiScene :
@@ -13,5 +13,7 @@ public:
 	
 	GLfloat g_vertex_buffer_data[9] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f,  1.0f, 0.0f};
 	GLuint vertexbuffer;
+	PAPShaderProgram* program;
+
 };
 

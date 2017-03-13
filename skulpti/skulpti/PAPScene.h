@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include "PAPWindow.h"
+#include "PAPShaderProgram.h"
 
 
 class PAPWindow;
