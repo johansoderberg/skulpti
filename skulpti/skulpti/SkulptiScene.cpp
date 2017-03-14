@@ -1,5 +1,6 @@
 ﻿#include "stdafx.h"
 #include "SkulptiScene.h"
+#include "PAPPositionable.h"
 
 
 SkulptiScene::SkulptiScene(PAPWindow* window) : PAPScene(window)
@@ -12,7 +13,6 @@ SkulptiScene::SkulptiScene(PAPWindow* window) : PAPScene(window)
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	// Give our vertices to OpenGL.
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-
 }
 
 
@@ -41,6 +41,24 @@ void SkulptiScene::render(GLFWwindow* window) {
 }
 
 void SkulptiScene::key_press(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	if (action == GLFW_PRESS) {
+		if (key == GLFW_KEY_0) {
+			PAPPositionable* pos = new PAPPositionable();
+			cout << "creating an object with name: " << pos->getName() << endl;
+			
+		}
+		if (key == GLFW_KEY_1) {
+			PAPObjectManager::getInstance().deleteObject("Unnamed_3");
+		}
+		if (key == GLFW_KEY_2) {
+			PAPPositionable* pos = (PAPPositionable*) PAPObjectManager::getInstance().getObject("Unnamed_3");
+			if (pos == nullptr) {
+				cout << "Object doesn't exist\n";
+			}
+			else
+				cout << "Object exists! yay\n";
+		}
+	}
 
 }
 

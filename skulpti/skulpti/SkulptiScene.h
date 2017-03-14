@@ -11,7 +11,7 @@ public:
 	virtual void key_press(GLFWwindow* window, int key, int scancode, int action, int mods);
 	virtual void size_callback(GLFWwindow* window, int width, int height);
 	
-	GLfloat g_vertex_buffer_data[9] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f,  1.0f, 0.0f};
+	GLfloat g_vertex_buffer_data[9] = {-1.0f, -0.5f, 0.0f, 0.75f, -0.75f, 0.0f, 0.0f, 1.0f, 0.0f};
 	GLuint vertexbuffer;
 	PAPShaderProgram* program;
 

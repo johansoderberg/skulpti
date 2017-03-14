@@ -150,6 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\glad\include\glad\glad.h" />
+    <ClInclude Include="PAPCamera.h" />
+    <ClInclude Include="PAPNamedObject.h" />
+    <ClInclude Include="PAPObjectManager.h" />
+    <ClInclude Include="PAPPositionable.h" />
     <ClInclude Include="PAPScene.h" />
     <ClInclude Include="PAPShaderProgram.h" />
     <ClInclude Include="PAPWindow.h" />
@@ -160,6 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.cpp" />
+    <ClCompile Include="PAPCamera.cpp" />
+    <ClCompile Include="PAPNamedObject.cpp" />
+    <ClCompile Include="PAPObjectManager.cpp" />
+    <ClCompile Include="PAPPositionable.cpp" />
     <ClCompile Include="PAPScene.cpp" />
     <ClCompile Include="PAPShaderProgram.cpp" />
     <ClCompile Include="PAPWindow.cpp" />

@@ -4,6 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <glm.hpp>
 #include <string>
+#include <iostream>
 #include "PAPScene.h"
 
 using namespace std;
