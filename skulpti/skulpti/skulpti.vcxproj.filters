@@ -36,9 +36,6 @@
     <ClInclude Include="SkulptiScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\glad\include\glad\glad.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PAPShaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>

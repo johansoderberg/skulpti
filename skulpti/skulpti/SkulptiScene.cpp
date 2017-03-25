@@ -5,8 +5,8 @@
 
 SkulptiScene::SkulptiScene(PAPWindow* window) : PAPScene(window)
 {
-	program = new PAPShaderProgram(string("C:\\Users\\JohanSöderberg\\OneDrive - One Agency AB\\Code\\skulpti\\skulpti\\Shaders\\Vertex1.txt"),
-		"C:\\Users\\JohanSöderberg\\OneDrive - One Agency AB\\Code\\skulpti\\skulpti\\Shaders\\Fragment1.txt");
+	program = new PAPShaderProgram(string("D:\\Local data\\OneDrive\\Projects\\skulpti\\skulpti\\Shaders\\Vertex1.txt"),
+		"D:\\Local data\\OneDrive\\Projects\\skulpti\\skulpti\\Shaders\\Fragment1.txt");
 	// Generate 1 buffer, put the resulting identifier in vertexbuffer
 	glGenBuffers(1, &vertexbuffer);
 	// The following commands will talk about our 'vertexbuffer' buffer
